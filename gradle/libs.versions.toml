@@ -4,6 +4,7 @@ kotlin = "1.9.22"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
+junitPlugin = "1.8.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.4"
 activityCompose = "1.9.1"
@@ -12,10 +13,17 @@ ksp = "1.9.10-1.0.13"
 hilt = "2.48.1"
 hiltExt = "1.1.0"
 google-services = "4.4.1"
-
+serialization-json = "1.6.0"
 kotlin-compiler = "1.5.10"
 appcompat = "1.7.0"
 material = "1.12.0"
+datastore = "1.0.0"
+coroutineAndroid = "1.7.3"
+
+#Testing
+mockk="1.13.7"
+truth="1.1.5"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -34,6 +42,17 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 
+
+#Testing
+jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junit" }
+jupiter-plugin = { group = "de.mannodermaus.gradle.plugins", name = "android-junit5", version.ref = "junitPlugin" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+mockAndroid = { group = "io.mockk", name = "mockk-android", version.ref = "mockk" }
+truth= { group = "com.google.truth", name = "truth", version.ref = "truth" }
+testCoroutine = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutineAndroid" }
+
 #Hilt
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
@@ -49,6 +68,11 @@ lifecycle-viewmodel-savedstate = { group = "androidx.lifecycle", name = "lifecyc
 lifecycle-runtime-testing = { group = "androidx.lifecycle", name = "lifecycle-runtime-testing", version.ref = "lifecycleRuntimeKtx" }
 
 
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization-json" }
+
+# Datastore
+datastore = { group = "androidx.datastore", name ="datastore", version.ref = "datastore" }
+datastore-preferences = { group = "androidx.datastore", name ="datastore-preferences", version.ref = "datastore" }
 
 # Build - Logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
