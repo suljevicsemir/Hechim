@@ -14,6 +14,8 @@ hiltExt = "1.1.0"
 google-services = "4.4.1"
 
 kotlin-compiler = "1.5.10"
+appcompat = "1.7.0"
+material = "1.12.0"
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -52,6 +54,8 @@ lifecycle-runtime-testing = { group = "androidx.lifecycle", name = "lifecycle-ru
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -69,6 +73,7 @@ convention-android-hilt = { id = "hechimdemo.android.hilt", version = "unspecifi
 convention-android-buildtype = { id = "hechimdemo.android.buildtype", version = "unspecified" }
 convention-android-project-flavor = { id = "hechimdemo.android.ProjectFlavor", version = "unspecified"}
 googleServices = {id = "com.google.gms.google-services", version.ref = "google-services"}
+android-library = { id = "com.android.library", version.ref = "agp" }
 
 
 
