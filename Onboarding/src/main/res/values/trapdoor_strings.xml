@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Android Location always trapdoor -->
+    <string name="trapdoor_location_always_title">Oops! You’re at risk of losing out on a discount.</string>
+    <string name="trapdoor_location_always_description">To record workouts, %1s needs location access both while using the app and when it is in the background. Without location set to "Allow all the time", %2s will not work.</string>
+    <string name="trapdoor_location_always_steps"><![CDATA[<ol><li>1. Tap the button below</li><li>2. Tap Permissions</li><li>3. Location</li><li>4. Choose Allow all the time</li><li>5. Make sure Precise location is on</li></ol>]]></string>
+    <string name="trapdoor_location_always_button">Fix the problem</string>
+
+    <!-- Android Location trapdoor (Android 8 and 9) -->
+    <string name="trapdoor_location_title">Oops! You’re at risk of losing out on a discount.</string>
+    <string name="trapdoor_location_description">To record workouts, %1s needs location access both while using the app and when it is in the background. Tap the button below and choose “Allow” on the next screen.</string>
+    <string name="trapdoor_location_steps"><![CDATA[<p>To record workouts, %1s needs location access both while using the app and when it is in the background. Tap the button below and choose “Allow” on the next screen.</p>]]></string>
+    <string name="trapdoor_location_button">Fix the problem</string>
+
+    <string name="trapdoor_battery_optimisation_title">Oops! You’re at risk of losing out on a discount.</string>
+    <string name="trapdoor_battery_optimisation_description">This device uses battery optimization that stops %1s from recording workouts.</string>
+    <string name="trapdoor_battery_optimisation_steps"><![CDATA[<p>Please select “Allow” on the next screen so you don’t miss out on your discount.</p>]]></string>
+    <string name="trapdoor_battery_optimisation_button">Fix the problem</string>
+
+    <string name="trapdoor_activity_recognition_title">Oops! You’re at risk of losing out on a discount.</string>
+    <string name="trapdoor_activity_recognition_description">%1s needs your Physical activity permission set to “Allow” to detect driving and enable you to earn a discount.</string>
+    <string name="trapdoor_activity_recognition_steps"><![CDATA[<ol><li>1. Tap the button below</li><li>2. Tap Permissions</li><li>3. Tap Physical activity</li><li>4. Choose Allow</li></ol>]]></string>
+    <string name="trapdoor_activity_recognition_button">Fix the problem</string>
+</resources>
