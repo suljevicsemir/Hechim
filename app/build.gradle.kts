@@ -1,14 +1,19 @@
+import com.semirsuljevic.gradleplugins.HechimBrandFlavor
+import com.semirsuljevic.gradleplugins.HechimFlavorDimension
+
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.convention.android.application)
+    alias(libs.plugins.convention.android.application.compose)
+    alias(libs.plugins.convention.android.hilt)
+    alias(libs.plugins.googleServices)
 }
 
 android {
-    namespace = "com.semirsuljevic.hechim"
+    namespace = "com.example.hechimdemo"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.semirsuljevic.hechim"
+
         minSdk = 26
         targetSdk = 34
         versionCode = 1
@@ -21,27 +26,59 @@ android {
     }
 
     buildTypes {
+        debug {
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+
+//    signingConfigs {
+//        create(SigningConstants.devFlavor) {
+//            storeFile = file(SigningConstants.devStoreFile)
+//            storePassword = keystoreProperties.getProperty(SigningConstants.devStorePassword)
+//            keyAlias = keystoreProperties.getProperty(SigningConstants.devKeyAlias)
+//            keyPassword = keystoreProperties.getProperty(SigningConstants.devKeyPassword)
+//        }
+//        create(SigningConstants.prodFlavor) {
+//            storeFile = file(SigningConstants.prodStoreFile)
+//            storePassword = keystoreProperties.getProperty(SigningConstants.prodStorePassword)
+//            keyAlias = keystoreProperties.getProperty(SigningConstants.prodKeyAlias)
+//            keyPassword = keystoreProperties.getProperty(SigningConstants.prodKeyPassword)
+//        }
+//    }
+
+
+    flavorDimensions += HechimFlavorDimension.version.name
+    productFlavors {
+        HechimBrandFlavor.values().forEach {
+            create(it.name) {
+                dimension = it.dimension.name
+                applicationId = it.applicationId
+            }
+        }
+    }
+
+
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
         jvmTarget = "1.8"
     }
     buildFeatures {
         compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        buildConfig = true
     }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/gradle/incremental.annotation.processors"
         }
     }
 }
