@@ -19,10 +19,13 @@ appcompat = "1.7.0"
 material = "1.12.0"
 datastore = "1.0.0"
 coroutineAndroid = "1.7.3"
-
+firebase-bom = "33.0.0"
 #Testing
 mockk="1.13.7"
 truth="1.1.5"
+
+# Security
+security = "1.1.0-alpha06"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -81,10 +84,20 @@ ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devto
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
+# Firebase
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom"}
+firebase-firestore = {group = "com.google.firebase", name ="firebase-firestore"}
+firebase-authentication = {group = "com.google.firebase", name = "firebase-auth"}
+
+#Security
+security-crypto = {group = "androidx.security", name ="security-crypto", version.ref = "security"}
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 androidHilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
 junit5 = { id = "de.mannodermaus.android-junit5", version = "unspecified"}
 
 # Convention Plugins

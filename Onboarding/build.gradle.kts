@@ -1,8 +1,8 @@
 
 plugins {
-    id("hechimdemo.android.feature")
-    id("hechimdemo.android.library.compose")
-    //alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.convention.feature)
+    alias(libs.plugins.convention.android.library.compose)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -17,6 +17,12 @@ dependencies {
     implementation(project(":UI"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+
+    implementation(libs.security.crypto)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.authentication)
+    implementation(libs.firebase.firestore)
+
 
     testImplementation(libs.mockk)
     testImplementation(libs.mockAndroid)
