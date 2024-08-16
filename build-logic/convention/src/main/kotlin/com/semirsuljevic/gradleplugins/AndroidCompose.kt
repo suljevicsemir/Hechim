@@ -26,16 +26,17 @@ internal fun Project.configureAndroidCompose(
 
         // compose bom
         dependencies {
-            val bom = libs.findLibrary("compose-bom").get()
-            add("implementation", platform(bom))
-            add("androidTestImplementation", platform(bom))
-            add("implementation", libs.findLibrary("androidx-activity-compose").get())
+            add("implementation", libs.findLibrary("compose.foundation").get())
+            add("implementation", libs.findLibrary("compose.runtime").get())
+            add("androidTestImplementation", libs.findLibrary("compose.runtime").get())
+            add("implementation", libs.findLibrary("activity.compose").get())
+
             add("implementation", libs.findLibrary("lifecycle.viewmodel.compose").get())
             add("implementation", libs.findLibrary("lifecycle.runtime.compose").get())
             add("implementation", libs.findLibrary("androidx-ui").get())
             add("implementation", libs.findLibrary("androidx-ui-graphics").get())
             add("implementation", libs.findLibrary("androidx-ui-tooling-preview").get())
-            add("implementation", libs.findLibrary("androidx-material3").get())
+            add("implementation", libs.findLibrary("material3").get())
             add("debugImplementation", libs.findLibrary("androidx-ui-tooling").get())
         }
         testOptions {
