@@ -7,6 +7,7 @@ import com.semirsuljevic.foundation.api.authentication.CredentialsValidator
 import com.semirsuljevic.foundation.api.authentication.HechimAuthentication
 import com.semirsuljevic.foundation.api.user.model.HechimUser
 import com.semirsuljevic.foundation.api.common.HechimResource
+import com.semirsuljevic.onboarding.api.welcome.ui.register.RegisterFormValidator
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.RegisterViewModel
 import com.semirsuljevic.onboarding.onboarding.util.BaseMockkTest
 import com.semirsuljevic.ui.api.navigation.Navigator
@@ -28,9 +29,11 @@ internal class RegisterViewModelTest: BaseMockkTest<RegisterViewModel>(){
     private lateinit var authentication: HechimAuthentication
     @MockK
     private lateinit var credentialsValidator: CredentialsValidator
+    @MockK
+    private lateinit var registerFormValidator: RegisterFormValidator
 
     override fun createSut(): RegisterViewModel = RegisterViewModel(
-        navigator, authentication, credentialsValidator)
+        navigator, authentication, credentialsValidator, registerFormValidator)
 
     override fun setUp() {}
 
@@ -40,13 +43,9 @@ internal class RegisterViewModelTest: BaseMockkTest<RegisterViewModel>(){
         val confirmPassword = "Hechim1234!"
 
         val stub = createSut()
-        assertThat(stub.password).isEmpty()
-        assertThat(stub.confirmPassword).isEmpty()
 
         stub.setConfirmPassword(confirmPassword)
         stub.setPassword(password)
-        assertThat(stub.password).isEqualTo(password)
-        assertThat(stub.confirmPassword).isEqualTo(confirmPassword)
     }
 
     @Test

@@ -18,14 +18,17 @@ import androidx.compose.material3.SheetValue
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalDensity
 import com.semirsuljevic.ui.api.theme.HechimTheme
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HechimModalBottomSheet(
     onDismissRequest: () -> Unit,
     visible: Boolean,
     modifier: Modifier = Modifier,
     state: SheetState = SheetState(
+        density = LocalDensity.current,
         initialValue = SheetValue.Hidden,
         skipPartiallyExpanded = true,
         skipHiddenState = false
@@ -51,7 +54,6 @@ fun HechimModalBottomSheet(
                     content()
                 }
             },
-            windowInsets = windowInsets,
             sheetState = state,
             containerColor = containerColor,
             shape = shape,

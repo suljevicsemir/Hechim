@@ -59,10 +59,7 @@ fun NavGraphBuilder.onBoardingNavGraph(
         LoginScreen(loginViewModel = loginViewModel, permissionsViewModel)
     }
     composable(route = RouteRegister().path) {
-        val loginEmailViewModel = viewModel<LoginEmailViewModel>(viewModelStoreOwner)
-        val registerViewModel = viewModel<RegisterViewModel>(viewModelStoreOwner)
-        registerViewModel.setEmail(loginEmailViewModel.email)
-        RegisterScreen(registerViewModel = viewModel<RegisterViewModel>(viewModelStoreOwner))
+        RegisterScreen()
     }
     composable(route = RouteName().path) {
         NameRoute()
