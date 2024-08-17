@@ -29,12 +29,13 @@ import com.semirsuljevic.ui.api.screen.HechimScreenConfig
 import com.semirsuljevic.ui.api.textfield.HechimTextField
 import com.semirsuljevic.ui.api.theme.HechimTheme
 import kotlinx.coroutines.launch
+import kotlin.math.log
 
 class RouteLogin: HechimRoute("login")
 
 @Composable
 fun LoginScreen(
-    loginViewModel: LoginViewModel,
+    loginViewModel: LoginViewModel = hiltViewModel(),
     permissionsViewModel: PermissionViewModel = hiltViewModel()
 ) {
     val coroutineScope = rememberCoroutineScope()
@@ -64,11 +65,6 @@ fun LoginScreen(
                 .padding(bottom = HechimTheme.sizes.xxLarge)
                 .fillMaxSize()
         ){
-            Spacer(modifier = Modifier.weight(0.2f))
-            Row {
-                PageIndexIndicator(selected = false)
-                PageIndexIndicator(selected = true)
-            }
             Spacer(modifier = Modifier.height(HechimTheme.sizes.xLarge))
             Text(
                 stringResource(id = R.string.login_password_input_headline),
@@ -77,31 +73,25 @@ fun LoginScreen(
             )
             Spacer(modifier = Modifier.height(HechimTheme.sizes.xLarge))
             Text(
-                stringResource(id = R.string.login_password_input_desc_1).format(loginViewModel.email),
+                stringResource(id = R.string.login_password_input_desc_1),
                 color = HechimTheme.colors.textDefault,
                 style = HechimTheme.fonts.bodyRegular
             )
             Spacer(modifier = Modifier.weight(0.1f))
             HechimTextField(
-                value = loginViewModel.password,
-                onValueChange = { password ->
-                    loginViewModel.onPasswordChange(password)
-                },
-                hint = stringResource(id = R.string.login_password_input_hint),
-                keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Password,
-                    imeAction = ImeAction.Done
-                )
+                onValueChange = loginViewModel::onEmailChange,
+                config = loginViewModel.emailConfig
+            )
+            Spacer(modifier = Modifier.height(HechimTheme.sizes.small))
+            HechimTextField(
+                onValueChange = loginViewModel::onPasswordChange,
+                config = loginViewModel.passwordConfig,
+                trailingIcon = loginViewModel.passwordTrailingIcon,
+                onTrailingClick = loginViewModel::onTrailingClick
             )
             Spacer(modifier = Modifier.weight(1f))
             HechimButton(
-                onClick = {
-                    coroutineScope.launch {
-                        loginViewModel.login {
-                            permissionsViewModel.startPermissions()
-                        }
-                    }
-                },
+                onClick = loginViewModel::login,
                 text = stringResource(id = R.string.login_password_input_login_button)
             )
         }
