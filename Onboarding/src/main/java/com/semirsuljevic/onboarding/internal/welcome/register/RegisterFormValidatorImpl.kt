@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
-class RegisterFormValidatorImpl @Inject constructor(
+internal class RegisterFormValidatorImpl @Inject constructor(
     private val credentialsValidator: CredentialsValidator
 ): RegisterFormValidator{
     override fun setEmail(value: String) {

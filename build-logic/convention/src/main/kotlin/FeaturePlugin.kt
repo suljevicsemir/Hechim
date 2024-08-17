@@ -33,7 +33,8 @@ class FeaturePlugin : Plugin<Project> {
                 // add("implementation", libs.findLibrary("lifecycle.viewModelCompose").get())
                 add("implementation", libs.findLibrary("kotlinx.serialization.json").get())
                 add("implementation", libs.findLibrary("datastore").get())
-                add("implementation", libs.findLibrary("androidx-material3").get())
+                add("implementation", libs.findLibrary("material3").get())
+
                 //add("implementation", libs.findLibrary("kotlinx.collections.immutable").get())
 
                 //testing dependencies
