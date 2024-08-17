@@ -30,8 +30,6 @@ class RouteName: HechimRoute("name")
 fun NameRoute(
     viewModel: NameViewModel = hiltViewModel()
 ) {
-    BackHandler (enabled = true){}
-
     HechimScreen (
         config = HechimScreenConfig(
             canNavigateBack = false
@@ -51,27 +49,13 @@ fun NameRoute(
             )
             Spacer(modifier = Modifier.height(HechimTheme.sizes.xxLarge))
             HechimTextField(
-                value = viewModel.firstName,
-                onValueChange = {name ->
-                    viewModel.onFirstNameChange(name)
-                },
-                hint = stringResource(id = R.string.name_first_name_hint),
-                keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Text,
-                    imeAction = ImeAction.Next
-                )
+                onValueChange = viewModel::onFirstNameChange,
+                config = viewModel.firstNameConfig
             )
             Spacer(modifier = Modifier.height(HechimTheme.sizes.large))
             HechimTextField(
-                value = viewModel.lastName,
-                onValueChange = { name ->
-                    viewModel.onLastNameChange(name)
-                },
-                hint = stringResource(id = R.string.name_last_name_hint),
-                keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Text,
-                    imeAction = ImeAction.Done
-                )
+                onValueChange = viewModel::onLastNameChange,
+                config = viewModel.lastNameConfig,
             )
             Spacer(modifier = Modifier.weight(1f))
             HechimButton(
