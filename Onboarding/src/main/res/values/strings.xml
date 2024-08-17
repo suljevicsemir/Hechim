@@ -26,11 +26,12 @@
     <string name="login_username_input_desc">Please enter the email you want to use with our app.</string>
     <string name="login_username_input_headline">Enter your username</string>
     <string name="login_username_input_hint">Your email</string>
+    <string name="login_password_input_hint">Your password</string>
     <string name="login_username_input_button">CONTINUE</string>
     <string name="login_password_input_title">LOGIN</string>
-    <string name="login_password_input_headline">Enter your password</string>
-    <string name="login_password_input_desc_1">"Welcome to Hechim, %1s. To login, please enter your password."</string>
-    <string name="login_password_input_hint">Your password</string>
+    <string name="login_password_input_headline">Login</string>
+    <string name="login_invalid_email">Invalid email format</string>
+    <string name="login_password_input_desc_1">"Welcome to Hechim. To login, please enter your email password."</string>
     <string name="login_password_input_login_button">LOG IN</string>
 
     <!--Register-->
