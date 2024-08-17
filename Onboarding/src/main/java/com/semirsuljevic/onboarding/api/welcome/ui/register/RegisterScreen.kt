@@ -13,9 +13,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.hechimdemo.onboarding.R
+import com.semirsuljevic.foundation.api.common.UiText
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.RegisterViewModel
 import com.semirsuljevic.ui.api.buttons.HechimButton
 import com.semirsuljevic.ui.api.buttons.HechimIconButton
+import com.semirsuljevic.ui.api.common.PasswordRequirements
 import com.semirsuljevic.ui.api.navigation.HechimRoute
 import com.semirsuljevic.ui.api.screen.HechimScreen
 import com.semirsuljevic.ui.api.screen.HechimScreenConfig
@@ -75,6 +77,9 @@ fun RegisterScreen(viewModel: RegisterViewModel = hiltViewModel()) {
                 onTrailingClick = viewModel::invertConfirmPasswordVisibility,
                 config = viewModel.confirmPasswordConfig
             )
+            SignInButton { viewModel.navigateToSignIn() }
+            Spacer(modifier = Modifier.height(HechimTheme.sizes.xxLarge))
+            PasswordRequirements(requirements = UiText.StringResource(R.string.register_password_reqs))
             Spacer(modifier = Modifier.weight(1f))
             HechimButton(
                 onClick = viewModel::register,

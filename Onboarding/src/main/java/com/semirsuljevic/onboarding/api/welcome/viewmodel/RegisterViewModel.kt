@@ -10,6 +10,7 @@ import com.semirsuljevic.foundation.api.authentication.HechimAuthentication
 import com.semirsuljevic.foundation.api.user.model.HechimUser
 import com.semirsuljevic.foundation.api.common.HechimResource
 import com.semirsuljevic.foundation.api.common.UiText
+import com.semirsuljevic.onboarding.api.welcome.ui.email.RouteEmail
 import com.semirsuljevic.onboarding.api.welcome.ui.name.ui.RouteName
 import com.semirsuljevic.onboarding.api.welcome.ui.onboarding.RouteOnBoardingPop
 import com.semirsuljevic.onboarding.api.welcome.ui.register.RegisterFormValidator
@@ -98,6 +99,10 @@ class RegisterViewModel @Inject constructor(
 
     fun navigate() {
         navigator.navigate(RouteOnBoardingPop())
+    }
+
+    fun navigateToSignIn() {
+        navigator.navigate(RouteEmail())
     }
 
 }

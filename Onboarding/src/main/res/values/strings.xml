@@ -44,6 +44,9 @@
     <string name="register_email_invalid">Email invalid</string>
     <string name="register_password_invalid">Password invalid</string>
     <string name="register_password_match">Passwords don\'t match!</string>
+    <string name="register_password_reqs">Please note: your password must contain at least 8 characters, including at least one uppercase, one lowercase, one number and one symbol.</string>
+    <string name="register_have_account">Have account?</string>
+    <string name="register_sign_in">Sign in</string>
 
     <!--Name-->
     <string name="name_headline">What should we call you during FitnessPal experience?</string>
