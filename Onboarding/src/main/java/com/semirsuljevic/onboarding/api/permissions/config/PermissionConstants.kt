@@ -9,7 +9,7 @@ object PermissionConstants {
     const val permissionRoute: String = "permission"
     const val android9LocationPermission = "android.Manifest.permission.Android9Permission"
     const val samsungManufacturer: String = "samsung"
-    const val packageConstant: String = "package"
+    const val packageConstant: String = "package:"
     /**
     Maximum number of requests on Android.
      */

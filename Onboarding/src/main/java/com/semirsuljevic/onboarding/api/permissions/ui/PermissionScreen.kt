@@ -1,7 +1,11 @@
 package com.semirsuljevic.onboarding.api.permissions.ui
 
 import android.Manifest
+import android.app.Activity
+import android.content.Intent
+import androidx.activity.compose.ManagedActivityResultLauncher
 import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -44,6 +48,12 @@ fun PermissionScreen(
     LaunchedEffect(Unit) {
         viewModel.getStringsForPermission(permission)
     }
+
+    val optimizationLauncher: ManagedActivityResultLauncher<Intent, ActivityResult> = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.StartActivityForResult(),
+        onResult = {
+        }
+    )
 
     val strings: PermissionString by viewModel.permissionStrings.collectAsStateWithLifecycle()
 
@@ -132,6 +142,7 @@ fun PermissionScreen(
                         launcher,
                         permission.manifestPermission,
                         android10Location,
+                        optimizationLauncher,
                         permission.multiplePermissions
                     )
                 },

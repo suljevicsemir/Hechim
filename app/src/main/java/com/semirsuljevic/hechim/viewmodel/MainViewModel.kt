@@ -9,6 +9,7 @@ import com.semirsuljevic.foundation.api.authentication.HechimAuthentication
 import com.semirsuljevic.foundation.api.storage.preferences.AppPreferences
 import com.semirsuljevic.foundation.api.user.Profile
 import com.semirsuljevic.foundation.api.user.ProfileProvider
+import com.semirsuljevic.onboarding.api.permissions.PermissionsApi
 import com.semirsuljevic.onboarding.api.welcome.config.welcome.OnBoardingConstants
 import com.semirsuljevic.onboarding.api.welcome.ui.login.RouteLogin
 import com.semirsuljevic.onboarding.api.welcome.ui.name.ui.RouteName
@@ -27,21 +28,22 @@ class MainViewModel @Inject constructor(
     private val hechimAuthentication: HechimAuthentication,
     private val profileProvider: ProfileProvider,
     private val profile: Profile,
-    private val appPreferences: AppPreferences
+    private val appPreferences: AppPreferences,
+    private val permissionsApi: PermissionsApi
 ): ViewModel(){
     private val _startDestination = mutableStateOf<String?>(null)
     val startDestination: String? get() = _startDestination.value
 
     fun setupNavigation(navController: NavHostController) {
         navigator.setNavController(navController)
-        //navigator.setHome(RouteDashboard().path)
+        navigator.setHome(RouteDashboard().path)
     }
 
     fun checkProfileTrapdoor() {
-        if(!hechimAuthentication.isAuthenticated()) {
-            return
-        }
         viewModelScope.launch {
+            if(!hechimAuthentication.isAuthenticated() || permissionsApi.checkPermissions().isNotEmpty()) {
+                return@launch
+            }
             delay(1000)
             profile.getUser()
             launch {

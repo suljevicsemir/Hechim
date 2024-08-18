@@ -1,6 +1,7 @@
 package com.semirsuljevic.onboarding.api.permissions.viewmodel
 
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import androidx.activity.compose.ManagedActivityResultLauncher
 import androidx.lifecycle.viewModelScope
@@ -85,6 +86,7 @@ class PermissionViewModel @Inject constructor(
         launcher: ManagedActivityResultLauncher<String, Boolean>,
         manifestPermission: String,
         multipleLauncher: ManagedActivityResultLauncher<Array<String>, Map<String, Boolean>>,
+        optimizationLauncher: ManagedActivityResultLauncher<Intent, androidx.activity.result.ActivityResult>,
         multiplePermissions: List<String> ? = null
     ) {
         if(multiplePermissions != null) {
@@ -93,7 +95,7 @@ class PermissionViewModel @Inject constructor(
         }
         if(manifestPermission == android.Manifest.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS) {
             _batteryOptimizationPrompted.value = true
-            requestIgnoreBatteryOptimization()
+            requestIgnoreBatteryOptimization(optimizationLauncher)
             return
         }
         requestPermission(manifestPermission, launcher)

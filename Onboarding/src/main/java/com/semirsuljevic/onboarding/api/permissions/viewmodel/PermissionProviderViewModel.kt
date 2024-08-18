@@ -7,6 +7,8 @@ import android.net.Uri
 import android.os.Build
 import android.os.PowerManager
 import android.provider.Settings
+import androidx.activity.compose.ManagedActivityResultLauncher
+import androidx.activity.result.ActivityResult
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import com.semirsuljevic.foundation.api.datastore.model.PermissionRequests
@@ -46,14 +48,16 @@ open class PermissionsProviderViewModel @Inject constructor(
         return powerManager.isIgnoringBatteryOptimizations(applicationContext.packageName)
     }
 
-    fun requestIgnoreBatteryOptimization() {
+    fun requestIgnoreBatteryOptimization(launcher: ManagedActivityResultLauncher<Intent, ActivityResult>) {
         val intent = Intent()
-        val powerManager = applicationContext.getSystemService(Context.POWER_SERVICE) as PowerManager
-        if (!powerManager.isIgnoringBatteryOptimizations(applicationContext.packageName)) {
+        val packageName = applicationContext.packageName
+        println("package name is: $packageName")
+        val pm = applicationContext.getSystemService(Context.POWER_SERVICE) as PowerManager
+        if (!pm.isIgnoringBatteryOptimizations(packageName)) {
             intent.setAction(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)
-            intent.setData(Uri.parse("${PermissionConstants.packageConstant}:${applicationContext.packageName}"))
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            applicationContext.startActivity(intent)
+            println("uri is: ${Uri.parse("${PermissionConstants.packageConstant}$packageName")}")
+            intent.setData(Uri.parse("${PermissionConstants.packageConstant}$packageName"))
+            launcher.launch(intent)
         }
     }
     //easier to use if then else statements than when (previously used)
