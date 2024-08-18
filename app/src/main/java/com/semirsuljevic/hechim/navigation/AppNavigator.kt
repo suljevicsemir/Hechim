@@ -36,7 +36,7 @@ fun AppNavigator(
             trapdoorViewModel.checkTrapdoorPermission()
         }
         if(event == Lifecycle.Event.ON_CREATE) {
-            //permissionViewModel.startPermissions()
+            permissionViewModel.startPermissions()
         }
     }
 

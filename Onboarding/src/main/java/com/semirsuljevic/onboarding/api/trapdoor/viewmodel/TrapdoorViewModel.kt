@@ -80,8 +80,7 @@ class TrapdoorViewModel @Inject constructor(
             }
             //Background location for Android 10 and above
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q &&
-                !permissionGranted(android.Manifest.permission.ACCESS_BACKGROUND_LOCATION)) {
-                value.add(android.Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+                (!permissionGranted(android.Manifest.permission.ACCESS_BACKGROUND_LOCATION) || !permissionGranted(android.Manifest.permission.ACCESS_FINE_LOCATION))) {
                 tempConfig = TrapdoorConstants.locationAlways
             }
             _trapdoorConfig.value = tempConfig
@@ -97,7 +96,7 @@ class TrapdoorViewModel @Inject constructor(
         if(_trapdoorConfig.value != null){
             if(_trapdoorConfig.value?.manifestPermission == android
                     .Manifest.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS) {
-                requestIgnoreBatteryOptimization()
+                requestIgnoreBatteryOptimization(launcher)
                 return
             }
             //redirect the user to app settings

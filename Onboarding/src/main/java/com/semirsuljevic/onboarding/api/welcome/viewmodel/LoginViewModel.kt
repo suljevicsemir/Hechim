@@ -79,8 +79,7 @@ class LoginViewModel @Inject constructor(
                 password = _passwordConfig.value.text
             )
             if(_resource.value is HechimResource.Success) {
-                permissionsApi.checkPermissions()
-                //check permissions and name
+                permissionsNavigator.setRoutes(permissionsApi.checkPermissions())
             }
         }
     }

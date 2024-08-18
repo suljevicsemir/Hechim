@@ -37,9 +37,7 @@ fun TrapdoorScreen(
     }
     val launcher: ManagedActivityResultLauncher<Intent, ActivityResult> = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult(),
-        onResult = {
-
-        }
+        onResult = {}
     )
 
     Scaffold (
