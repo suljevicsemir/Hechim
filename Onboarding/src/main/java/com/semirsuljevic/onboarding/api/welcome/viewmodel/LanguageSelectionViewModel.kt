@@ -9,6 +9,7 @@ import com.semirsuljevic.onboarding.api.welcome.config.welcome.AppLocale
 import com.semirsuljevic.onboarding.api.welcome.config.welcome.toAppLocale
 import com.semirsuljevic.foundation.api.secure.SecureStorage
 import com.semirsuljevic.onboarding.api.welcome.ui.email.RouteEmail
+import com.semirsuljevic.onboarding.api.welcome.ui.register.RouteRegister
 import com.semirsuljevic.ui.api.navigation.Navigator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -94,7 +95,7 @@ class LanguageSelectionViewModel @Inject constructor(
     fun pop() = navigator.pop()
 
     fun navigateToEmail() {
-        navigator.navigate(RouteEmail())
+        navigator.navigate(RouteRegister())
     }
 
     val dialogLanguage: UiText get() = if(_selectedLocale.value == null)

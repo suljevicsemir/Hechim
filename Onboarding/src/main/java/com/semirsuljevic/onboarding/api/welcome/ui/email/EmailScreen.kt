@@ -6,13 +6,10 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.hechimdemo.onboarding.R
@@ -29,9 +26,9 @@ import com.semirsuljevic.ui.api.theme.HechimTheme
 class RouteEmail: HechimRoute("email")
 
 @Composable
-fun EmailScreen(loginEmailViewModel: LoginEmailViewModel) {
+fun EmailScreen(viewModel: LoginEmailViewModel = hiltViewModel()) {
     HechimScreen (
-        resource = loginEmailViewModel.resource,
+        resource = viewModel.resource,
         config = HechimScreenConfig(
             canNavigateBack = false,
             title = stringResource(id = R.string.login_username_input_title)
@@ -40,7 +37,7 @@ fun EmailScreen(loginEmailViewModel: LoginEmailViewModel) {
             HechimIconButton(
                 icon = R.drawable.ic_help,
                 onClick = {
-                    loginEmailViewModel.navigate()
+                    viewModel.navigate()
                 }
             )
         }
@@ -71,20 +68,20 @@ fun EmailScreen(loginEmailViewModel: LoginEmailViewModel) {
             )
             Spacer(modifier = Modifier.weight(0.1f))
             HechimTextField(
-                value = loginEmailViewModel.email,
+                //value = loginEmailViewModel.email,
                 onValueChange = { email ->
-                    loginEmailViewModel.onEmailChange(email)
+                    viewModel.onEmailChange(email)
                 },
-                hint = stringResource(id = R.string.login_username_input_hint),
-                keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Email,
-                    imeAction = ImeAction.Done
-                )
+                //hint = stringResource(id = R.string.login_username_input_hint),
+//                keyboardOptions = KeyboardOptions(
+//                    keyboardType = KeyboardType.Email,
+//                    imeAction = ImeAction.Done
+//                )
             )
             Spacer(modifier = Modifier.weight(1f))
             HechimButton(
                 onClick = {
-                  loginEmailViewModel.checkEmail()
+                  viewModel.checkEmail()
                 },
                 text = stringResource(id = R.string.login_username_input_button)
             )
@@ -98,5 +95,5 @@ fun EmailScreen(loginEmailViewModel: LoginEmailViewModel) {
 @Preview
 @Composable
 private fun EmailRoutePreview() {
-    EmailScreen(loginEmailViewModel = hiltViewModel())
+    EmailScreen(viewModel = hiltViewModel())
 }
