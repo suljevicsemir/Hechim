@@ -27,4 +27,6 @@ object OnBoardingConstants {
         descriptionKey = R.string.onboarding_2_desc,
         image = R.drawable.img_onboarding_3
     )
+
+    const val FINISHED_ONBOARDING = "finished_onboarding"
 }

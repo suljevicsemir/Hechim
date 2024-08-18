@@ -5,6 +5,7 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.semirsuljevic.foundation.api.storage.preferences.AppPreferences
 import com.semirsuljevic.onboarding.api.welcome.config.welcome.OnBoardingConstants
 import com.semirsuljevic.onboarding.api.welcome.ui.language.RouteLanguageSelection
 import com.semirsuljevic.ui.api.navigation.HechimRoute
@@ -15,7 +16,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class OnBoardingViewModel @Inject constructor(
-    private val navigator: Navigator
+    private val navigator: Navigator,
+    private val appPreferences: AppPreferences
 ) : ViewModel() {
 
     private var _selectedIndex = mutableIntStateOf(0)
@@ -34,7 +36,6 @@ class OnBoardingViewModel @Inject constructor(
 
     val items get() = OnBoardingConstants.onBoardingItems
 
-    @OptIn(ExperimentalFoundationApi::class)
     suspend fun onButtonClick(pagerState: PagerState) {
         withContext(viewModelScope.coroutineContext) {
             if(_selectedIndex.intValue != items.size - 1) {
@@ -42,6 +43,7 @@ class OnBoardingViewModel @Inject constructor(
                 return@withContext
             }
             if(_route == null) {
+                appPreferences.setBoolean(OnBoardingConstants.FINISHED_ONBOARDING, true)
                 navigator.navigate(RouteLanguageSelection())
                 return@withContext
             }

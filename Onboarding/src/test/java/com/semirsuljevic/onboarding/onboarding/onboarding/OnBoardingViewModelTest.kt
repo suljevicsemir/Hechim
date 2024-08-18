@@ -5,6 +5,7 @@ import androidx.compose.foundation.gestures.ScrollableState
 import androidx.compose.foundation.pager.PagerState
 import com.google.common.truth.Truth.assertThat
 import com.semirsuljevic.foundation.api.secure.SecureStorage
+import com.semirsuljevic.foundation.api.storage.preferences.AppPreferences
 import com.semirsuljevic.onboarding.api.welcome.config.welcome.AppLocale
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.OnBoardingViewModel
 import com.semirsuljevic.onboarding.onboarding.util.BaseMockkTest
@@ -21,9 +22,11 @@ class OnBoardingViewModelTest: BaseMockkTest<OnBoardingViewModel>() {
 
     @MockK
     private lateinit var navigator: Navigator
+    @MockK
+    private lateinit var appPreferences: AppPreferences
 
 
-    override fun createSut(): OnBoardingViewModel = OnBoardingViewModel(navigator)
+    override fun createSut(): OnBoardingViewModel = OnBoardingViewModel(navigator, appPreferences)
 
     override fun setUp() {
         TODO("Not yet implemented")

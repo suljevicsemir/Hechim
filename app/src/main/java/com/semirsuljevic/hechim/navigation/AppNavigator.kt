@@ -11,6 +11,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import com.semirsuljevic.dashboard.api.navigation.dashboardNavGraph
 import com.semirsuljevic.hechim.viewmodel.MainViewModel
 import com.semirsuljevic.onboarding.api.permissions.navigation.permissionsNavGraph
 import com.semirsuljevic.onboarding.api.permissions.viewmodel.PermissionViewModel
@@ -44,16 +45,21 @@ fun AppNavigator(
         mainViewModel.checkProfileTrapdoor()
     }
 
-    NavHost(
-        navController = navController,
-        startDestination = mainViewModel.startDestination.path,
-    ) {
-        onBoardingNavGraph(viewModelStoreOwner)
-        permissionsNavGraph(viewModelStoreOwner)
+    if(mainViewModel.startDestination != null) {
+        NavHost(
+            navController = navController,
+            startDestination = mainViewModel.startDestination ?: "",
+        ) {
+            onBoardingNavGraph(viewModelStoreOwner)
+            permissionsNavGraph(viewModelStoreOwner)
+            dashboardNavGraph()
+        }
+
+        TrapdoorScreen(
+            config = trapdoorViewModel.trapdoorConfig,
+            trapdoorViewModel = trapdoorViewModel
+        )
     }
 
-    TrapdoorScreen(
-        config = trapdoorViewModel.trapdoorConfig,
-        trapdoorViewModel = trapdoorViewModel
-    )
+
 }

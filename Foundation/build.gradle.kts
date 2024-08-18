@@ -20,4 +20,5 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.authentication)
     implementation(libs.firebase.firestore)
+    implementation(libs.datastore.preferences)
 }
