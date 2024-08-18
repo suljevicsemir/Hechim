@@ -21,17 +21,15 @@ internal class LoginFormValidatorImpl @Inject constructor(
     private val credentialsValidator: CredentialsValidator
 ): LoginFormValidator{
     override fun setEmail(value: String) {
-        _emailConfig.update { _emailConfig.value.copy(text = value, errorText = UiText.StringValue("")) }
+        _emailConfig.update { _emailConfig.value.copy(text = value.trim(), errorText = UiText.StringValue("")) }
     }
     override fun setPassword(value: String) {
-        _passwordConfig.update { _passwordConfig.value.copy(text = value, errorText = UiText.StringValue("")) }
+        _passwordConfig.update { _passwordConfig.value.copy(text = value.trim(), errorText = UiText.StringValue("")) }
     }
 
     override fun validateForm(): Boolean {
         if(!credentialsValidator.validateEmail(_emailConfig.value.text)) {
-            _emailConfig.update {
-                _emailConfig.value.copy(errorText = UiText.StringResource(R.string.login_invalid_email))
-            }
+            _emailConfig.update { _emailConfig.value.copy(errorText = UiText.StringResource(R.string.login_invalid_email)) }
             return false
         }
         return true
