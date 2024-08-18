@@ -84,6 +84,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":Dashboard"))
     implementation(project(":Foundation"))
     implementation(project(":Onboarding"))
     implementation(project(":UI"))
