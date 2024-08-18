@@ -22,3 +22,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "Hechim"
 include(":app")
+include(":UI")
+include(":Foundation")
+include(":Onboarding")
+include(":Dashboard")

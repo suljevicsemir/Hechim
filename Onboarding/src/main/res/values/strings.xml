@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_1_headline">Welcome to FitnessPal!</string>
+    <string name="onboarding_1_desc">Kickstart your journey to a healthier you with FitnessPal. Whether you are a seasoned athlete or just starting out, our app is designed to support you every step of the way.</string>
+    <string name="onboarding_2_headline">Personalized Workouts</string>
+    <string name="onboarding_2_desc">Say goodbye to generic routines! FitnessPal tailors workouts to your fitness level, goals, and preferences, ensuring each session is effective and enjoyable.</string>
+    <string name="onboarding_3_headline">Track Your Progress</string>
+    <string name="onboarding_3_desc">Keep tabs on your achievements with our intuitive progress tracker. From calories burned to personal bests, see your hard work pay off and stay motivated to reach new heights.</string>
+    <string name="onboarding_next_button">NEXT</string>
+    <string name="onboarding_proceed">LET\'S GO!</string>
+    <string name="onboarding_top_bar">WELCOME</string>
+
+    <!--Language Selection screen-->
+    <string name="language_selection_title">LANGUAGE SELECTION</string>
+    <string name="language_selection_page_desc">Please select the language for the Fitness app user interface.</string>
+    <string name="language_selection_alert_title">Confirm language change</string>
+    <string name="language_selection_alert_content">Are you sure you want to change the language to %1s?</string>
+    <string name="app_language_fr" translatable="false">Français</string>
+    <string name="app_language_en" translatable="false">English</string>
+    <string name="app_language_de" translatable="false">Deutsch</string>
+    <string name="app_language_it" translatable="false">Italiano</string>
+    <string name="language_selection_not_supported">Language not supported</string>
+
+    <!--Login-->
+    <string name="login_username_input_title">LOGIN</string>
+    <string name="login_username_input_desc">Please enter the email you want to use with our app.</string>
+    <string name="login_username_input_headline">Enter your username</string>
+    <string name="login_username_input_hint">Your email</string>
+    <string name="login_password_input_hint">Your password</string>
+    <string name="login_username_input_button">CONTINUE</string>
+    <string name="login_password_input_title">LOGIN</string>
+    <string name="login_password_input_headline">Login</string>
+    <string name="login_invalid_email">Invalid email format</string>
+    <string name="login_password_input_desc_1">"Welcome to Hechim. To login, please enter your email password."</string>
+    <string name="login_password_input_login_button">LOG IN</string>
+
+    <!--Register-->
+    <string name="register_title">LOGIN</string>
+    <string name="register_headline">Create your password</string>
+    <string name="register_desc">Since this is your first sign-in, you must create a password that you will use for future access to your Hechim app.</string>
+    <string name="register_email_hint">Enter your email</string>
+    <string name="register_password_hint">Choose your password</string>
+    <string name="register_confirm_password_hint">Repeat password to confirm</string>
+    <string name="register_button">CONFIRM</string>
+    <string name="register_email_invalid">Email invalid</string>
+    <string name="register_password_invalid">Password invalid</string>
+    <string name="register_password_match">Passwords don\'t match!</string>
+    <string name="register_password_reqs">Please note: your password must contain at least 8 characters, including at least one uppercase, one lowercase, one number and one symbol.</string>
+    <string name="register_have_account">Have account?</string>
+    <string name="register_sign_in">Sign in</string>
+
+    <!--Name-->
+    <string name="name_headline">What should we call you during FitnessPal experience?</string>
+    <string name="name_first_name_hint">First name</string>
+    <string name="name_last_name_hint">Last name</string>
+
+    <string name="common_yes">Yes</string>
+    <string name="common_ok">OK</string>
+    <string name="common_no">No</string>
+</resources>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Permission location while using -->
+    <string name="permission_while_using_location_title">Enable location access (2 steps)</string>
+    <string name="permission_while_using_location_description">Step 1, tap &lt;b&gt;“Allow While Using App”&lt;/b&gt; on the next screen, so %1s can determine the location of workouts.</string>
+    <string name="permission_while_using_location_button_title">Next</string>
+    <string name="permission_while_using_location_sheet_button_title">Why do you need my location?</string>
+    <string name="permission_location_sheet_title">Why we need location</string>
+    <string name="permission_location_sheet_description">%1$s uses location data to determine where you start and stop workout. &lt;br&gt;&lt;br&gt;“Always Allow” location is needed to automatically start workout recording, so you don’t have to.</string>
+    <string name="permission_location_sheet_confirmation_button_title">Ok</string>
+
+    <!-- Permission location Android 10 and below -->
+    <string name="permission_location10_title">Enable location access</string>
+    <string name="permission_location10_description">%1$s needs location access set to “Allow all the time” to determine where you start and stop workout.</string>
+    <string name="permission_location10_button_title">Next</string>
+    <string name="permission_location10_sheet_button_title">Why do you need my location?</string>
+    <string name="permission_location10_sheet_title">Why we need location</string>
+    <string name="permission_location10_sheet_description">%1$s uses location data to determine where you start and stop workout.\n\n“Allow all the time” location is needed to automatically start workout recording, so you don’t have to.</string>
+    <string name="permission_location10_confirmation_button_title">Ok</string>
+
+    <!-- Permission location Android 8 and 9 -->
+    <string name="permission_location9_title">Enable location access</string>
+    <string name="permission_location9_description">%1$s needs location access set to “Allow” to determine where you start and stop workout.</string>
+    <string name="permission_location9_button_title">Next</string>
+    <string name="permission_location9_sheet_button_title">Why do you need my location?</string>
+    <string name="permission_location9_sheet_title">Why we need location</string>
+    <string name="permission_location9_sheet_description">%1$s uses location data to determine where you start and stop workout.\n\nBy allowing location access, your workout can start recording automatically.</string>
+    <string name="permission_location9_confirmation_button_title">Ok</string>
+
+    <!-- Permission location always -->
+    <string name="permission_always_location_title">Almost done! One more step...</string>
+    <string name="permission_always_location_description">Tap &lt;b&gt;“Change to Always Allow”&lt;/b&gt; on the next screen so %1$s can automatically detect workout.</string>
+    <string name="permission_always_location_button_title">Next</string>
+    <string name="permission_always_location_sheet_button_title">Why do you need my location?</string>
+
+
+    <!-- Permission motion -->
+    <string name="permission_motion_title">Enable motion activity</string>
+    <string name="permission_motion_description">%1$s uses your phone’s motion sensors to help determine when you are in a car and moving.</string>
+    <string name="permission_motion_button_title">Next</string>
+    <string name="permission_motion_sheet_button_title">Why do you need motion activity?</string>
+    <string name="permission_motion_sheet_title">Why we need motion</string>
+    <string name="permission_motion_sheet_description">%1$s uses your phone’s motion sensors to accurately determine when you’re in a car and moving.\n\nDespite the fact that Apple refers to this as “Motion &amp; Fitness Activity”, we only use this data to detect when you are in a car and moving.</string>
+    <string name="permission_motion_sheet_confirmation_button_title">Ok</string>
+
+    <!-- Permission activity recognition -->
+    <string name="permission_activity_title">Enable activity</string>
+    <string name="permission_activity_description">%1$s uses your phone’s activity sensors to help determine when you are in a car and moving.</string>
+    <string name="permission_activity_button_title">Next</string>
+    <string name="permission_activity_sheet_button_title">Why do you need activity?</string>
+    <string name="permission_activity_sheet_title">Why we need activity</string>
+    <string name="permission_activity_sheet_description">%1$s uses your phone’s activity sensors to accurately determine when you’re in a car and moving.\n\nDespite the fact that Android refers to this as “Physical Activity”, we only use this data to detect when you are in a car and moving.</string>
+    <string name="permission_activity_confirmation_button_title">Ok</string>
+
+    <!-- Permission Bluetooth -->
+    <string name="permission_bluetooth_title">Enable Bluetooth</string>
+    <string name="permission_bluetooth_description">Bluetooth is needed to record workout, and has minimal impact on your phone battery.</string>
+    <string name="permission_bluetooth_button_title">Next</string>
+    <string name="permission_bluetooth_sheet_button_title">Why do you need Bluetooth?</string>
+    <string name="permission_bluetooth_sheet_title">Why we need Bluetooth</string>
+    <string name="permission_bluetooth_sheet_description">Bluetooth permission enhances the accuracy of workout by knowing when you are in a vehicle. This has minimal impact on your phone battery.</string>
+    <string name="permission_bluetooth_confirmation_button_title">Ok</string>
+
+    <string name="permission_battery_optimisation_title">Don’t miss out on your discount!</string>
+    <string name="permission_battery_optimisation_description">This device uses battery optimization that stops %1$s from recording workout.\n\nPlease select “Allow” on the next screen so you don’t miss out on your discount.</string>
+    <string name="permission_battery_optimisation_button_title">Next</string>
+    <string name="permission_battery_optimisation_sheet_button_title">What is battery optimization?</string>
+    <string name="permission_battery_optimisation_sheet_title">What is battery optimization</string>
+    <string name="permission_battery_optimisation_sheet_description">Battery optimization stops apps from running in the background. Because of this, %1$s cannot record workout.\n\nBy turning off battery optimization for %1s, the app is able to run in the background, record workout, and help you get that discount!</string>
+    <string name="permission_battery_optimisation_sheet_confirmation_button_title">Ok</string>
+
+    <!-- Permission notification -->
+    <string name="permission_notification_title">Enable notifications</string>
+    <string name="permission_notification_description">Notifications are the primary way %1s will communicate important information to you.</string>
+    <string name="permission_notification_button_title">Next</string>
+    <string name="permission_notification_sheet_button_title">Why do you need notifications?</string>
+    <string name="permission_notification_sheet_title">Why we need notifications</string>
+    <string name="permission_notification_sheet_description">Notifications are the primary way %1$s will communicate with you. We may use notifications to let you know about updates to your discount, to share details on your workout, or to provide important updates about %2s.</string>
+    <string name="permission_notification_sheet_confirmation_button_title">Ok</string>
+
+    <string name="permission_always_location_modal_title">Don’t lose out on your discount!</string>
+    <string name="permission_always_location_modal_description">%1s will not work without “Allow all the time” permissions set correctly.</string>
+    <string name="permission_always_location_modal_cancel_button">Cancel</string>
+    <string name="permission_always_location_modal_settings_button">Go to Settings</string>
+
+
+</resources>
