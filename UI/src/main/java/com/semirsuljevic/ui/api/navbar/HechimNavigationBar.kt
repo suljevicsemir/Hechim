@@ -12,7 +12,7 @@ import com.semirsuljevic.ui.api.theme.HechimTheme
 @Composable
 fun HechimNavigationBar(
     navBarIndex: Int,
-    onClick: (Int, HechimNavigationBarItem) -> Unit,
+    onClick: (HechimNavigationBarItem) -> Unit,
     items: List<HechimNavigationBarItem>
 ) {
     NavigationBar(
@@ -22,7 +22,7 @@ fun HechimNavigationBar(
             NavigationBarItem(
                 selected = navBarIndex == index,
                 onClick = {
-                    onClick(index, dashboardItem)
+                    onClick(dashboardItem)
                 },
                 icon = {
                     Icon(
