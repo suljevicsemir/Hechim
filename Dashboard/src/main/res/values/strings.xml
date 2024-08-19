@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dashboard_item_home">Home</string>
+    <string name="dashboard_item_profile">Profile</string>
+    <string name="dashboard_item_more">More</string>
+    <string name="dashboard_item_workouts">Workouts</string>
+</resources>
