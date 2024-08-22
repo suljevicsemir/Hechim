@@ -1,7 +1,9 @@
 package com.semirsuljevic.dashboard.internal.di
 
+import com.semirsuljevic.dashboard.api.applicationSettings.viewmodel.ApplicationSettingsList
 import com.semirsuljevic.dashboard.api.legal.viewmodel.LegalList
 import com.semirsuljevic.dashboard.api.settings.viewmodel.SettingsList
+import com.semirsuljevic.dashboard.internal.applicationSettings.ApplicationSettingsListImpl
 import com.semirsuljevic.dashboard.internal.legal.LegalListImpl
 import com.semirsuljevic.dashboard.internal.settings.SettingsListImpl
 import dagger.Binds
@@ -20,4 +22,8 @@ internal abstract class SettingsModule {
     @Binds
     @Singleton
     abstract fun bindLegalList(impl: LegalListImpl): LegalList
+
+    @Binds
+    @Singleton
+    abstract fun bindApplicationSettingsList(impl: ApplicationSettingsListImpl): ApplicationSettingsList
 }

@@ -4,6 +4,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.semirsuljevic.dashboard.api.aboutUs.ui.AboutUsScreen
 import com.semirsuljevic.dashboard.api.aboutUs.ui.RouteAboutUs
+import com.semirsuljevic.dashboard.api.applicationSettings.ui.ApplicationSettingsScreen
+import com.semirsuljevic.dashboard.api.applicationSettings.ui.RouteApplicationSettings
 import com.semirsuljevic.dashboard.api.legal.ui.LegalScreen
 import com.semirsuljevic.dashboard.api.legal.ui.PrivacyPolicyScreen
 import com.semirsuljevic.dashboard.api.legal.ui.RouteLegal
@@ -22,6 +24,9 @@ fun NavGraphBuilder.dashboardNavGraph() {
     composable(RouteLegal().path) { LegalScreen() }
     composable(RouteTerms().path) { TermsScreen() }
     composable(RoutePrivacyPolicy().path) { PrivacyPolicyScreen() }
+
+    //APPLICATION SETTINGS (Leads to Change Password, Biometrics and Language Selection)
+    composable(RouteApplicationSettings().path) { ApplicationSettingsScreen() }
 
     //ABOUT US
     composable(RouteAboutUs().path) { AboutUsScreen() }

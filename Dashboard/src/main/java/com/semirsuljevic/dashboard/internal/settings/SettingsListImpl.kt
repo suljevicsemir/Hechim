@@ -2,6 +2,7 @@ package com.semirsuljevic.dashboard.internal.settings
 
 import com.semirsuljevic.dashboard.R
 import com.semirsuljevic.dashboard.api.aboutUs.ui.RouteAboutUs
+import com.semirsuljevic.dashboard.api.applicationSettings.ui.RouteApplicationSettings
 import com.semirsuljevic.dashboard.api.legal.ui.RouteLegal
 import com.semirsuljevic.dashboard.api.settings.viewmodel.SettingsList
 import com.semirsuljevic.dashboard.api.ui.RouteDashboard
@@ -28,7 +29,7 @@ class SettingsListImpl @Inject constructor(private val navigator: Navigator): Se
             title = UiText.StringResource(R.string.settings_app_settings_title),
             description = UiText.StringResource(R.string.settings_app_settings_desc),
             icon = R.drawable.ic_app_settings,
-            onClick = { navigator.navigate(RouteDashboard()) }
+            onClick = { navigator.navigate(RouteApplicationSettings()) }
         ),
         HechimListItemConfig(
             title = UiText.StringResource(R.string.settings_legal_title),
