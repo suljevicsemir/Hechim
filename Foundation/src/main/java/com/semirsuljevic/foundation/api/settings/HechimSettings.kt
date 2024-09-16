@@ -7,9 +7,9 @@ import com.semirsuljevic.foundation.api.settings.model.TermsOfUseResponse
 import kotlinx.coroutines.flow.Flow
 
 interface HechimSettings {
-    suspend fun getAboutUs()
-    suspend fun getPrivacyPolicy()
-    suspend fun getTermsOfUse()
+    fun getAboutUs(): Flow<HechimResource<AboutUsResponse>>
+    fun getPrivacyPolicy(): Flow<HechimResource<PrivacyPolicyResponse>>
+    fun getTermsOfUse(): Flow<HechimResource<TermsOfUseResponse>>
 
     val termsFlow: Flow<HechimResource<TermsOfUseResponse>>
     val aboutUsFlow: Flow<HechimResource<AboutUsResponse>>

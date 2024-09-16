@@ -28,6 +28,10 @@ class FirebaseParsing @Inject constructor(
         return serializers.json.encodeToString(list)
     }
 
+    inline fun <reified T> encodeDocumentToObject(doc: DocumentSnapshot): T{
+        return doc.toObject(T::class.java) ?: T::class.java.getDeclaredConstructor().newInstance()
+    }
+
 
     fun encodeDocumentSnapshot(snapshot: DocumentSnapshot): String =
         serializers.json.encodeToString(snapshot)

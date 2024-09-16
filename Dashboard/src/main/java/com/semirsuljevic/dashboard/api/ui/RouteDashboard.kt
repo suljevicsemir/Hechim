@@ -15,10 +15,12 @@ import com.semirsuljevic.dashboard.api.navigation.DashboardMoreItem
 import com.semirsuljevic.dashboard.api.navigation.DashboardProfileItem
 import com.semirsuljevic.dashboard.api.navigation.DashboardWorkoutsItem
 import com.semirsuljevic.dashboard.api.navigation.dashboardItems
+import com.semirsuljevic.dashboard.api.settings.ui.SettingsPage
 import com.semirsuljevic.dashboard.api.viewmodel.DashboardViewModel
 import com.semirsuljevic.ui.api.navbar.HechimNavigationBar
 import com.semirsuljevic.ui.api.navigation.HechimRoute
 import com.semirsuljevic.ui.api.screen.HechimScreen
+import com.semirsuljevic.ui.api.screen.HechimScreenConfig
 import com.semirsuljevic.ui.api.theme.HechimTheme
 
 class RouteDashboard: HechimRoute("dashboard")
@@ -31,10 +33,8 @@ fun DashboardScreen(
 
     LaunchedEffect(Unit) { viewModel.setNavController(navController) }
 
-
-
-
     HechimScreen (
+        config = HechimScreenConfig(canNavigateBack = false),
         bottomBar = {
             HechimNavigationBar(
                 navBarIndex = viewModel.navBarIndex,
@@ -61,16 +61,13 @@ fun DashboardScreen(
                 }
             }
             composable(DashboardMoreItem.route) {
-                Column {
-
-                }
+                SettingsPage()
             }
             composable(DashboardWorkoutsItem.route) {
                 Column {
 
                 }
             }
-
         }
     }
 }

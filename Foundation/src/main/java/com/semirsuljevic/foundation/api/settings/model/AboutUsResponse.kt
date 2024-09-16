@@ -4,6 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class AboutUsResponse(
-    val content: String,
-    val date: String
+    val content: String = "",
+    val date: String = ""
 )
