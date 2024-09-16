@@ -57,4 +57,7 @@
     <string name="new_password_same_as_old">New password can\'t be the same as the old one</string>
     <string name="new_password_invalid">Password invalid</string>
     <string name="passwords_not_equal">Passwords not equal</string>
+    <string name="change_pass_success_title">Password changed</string>
+    <string name="change_pass_success_description">Your password for accessing Eugen app was changed successfully.</string>
+    <string name="change_pass_success_button">OK</string>
 </resources>

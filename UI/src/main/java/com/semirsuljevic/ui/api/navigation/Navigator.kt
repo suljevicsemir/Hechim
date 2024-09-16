@@ -13,4 +13,6 @@ interface Navigator {
     fun navigateHome()
 
     fun navigateAndRemove(route: HechimRoute)
+
+    fun popUntil(route: HechimRoute, inclusive: Boolean = true)
 }

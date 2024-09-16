@@ -51,4 +51,8 @@ class NavigatorImpl @Inject constructor(): Navigator {
             }
         }
     }
+
+    override fun popUntil(route: HechimRoute, inclusive: Boolean) {
+        navigator.popBackStack(route.path, inclusive)
+    }
 }

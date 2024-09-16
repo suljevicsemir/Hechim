@@ -12,4 +12,6 @@ class NavigationViewModel @Inject constructor(
     fun navigateTo(route: HechimRoute) = navigator.navigate(route)
     fun navigateTo(route: String) = navigator.navigate(route)
     fun pop() = navigator.pop()
+
+    fun popUntil(route: HechimRoute, inclusive: Boolean) = navigator.popUntil(route, inclusive)
 }
