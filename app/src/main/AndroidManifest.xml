@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
 
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"
@@ -60,6 +61,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name="com.semirsuljevic.foundation.api.sdk.TrackerService"
+            android:foregroundServiceType="location"/>
     </application>
 
 </manifest>

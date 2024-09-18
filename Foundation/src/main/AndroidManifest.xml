@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <application>
+        <service android:name="com.semirsuljevic.foundation.api.sdk.TrackerService"
+            android:foregroundServiceType="location"/>
+    </application>
 </manifest>

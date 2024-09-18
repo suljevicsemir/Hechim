@@ -21,4 +21,5 @@ dependencies {
     implementation(libs.firebase.authentication)
     implementation(libs.firebase.firestore)
     implementation(libs.datastore.preferences)
+    implementation(libs.media)
 }
