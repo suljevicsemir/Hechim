@@ -25,7 +25,7 @@ firebase-bom = "33.0.0"
 #Testing
 mockk="1.13.7"
 truth="1.1.5"
-
+media="1.7.0"
 # Security
 security = "1.1.0-alpha06"
 
@@ -95,6 +95,9 @@ firebase-authentication = {group = "com.google.firebase", name = "firebase-auth"
 
 #Security
 security-crypto = {group = "androidx.security", name ="security-crypto", version.ref = "security"}
+
+#Media notifications
+media = { group = "androidx.media", name = "media", version.ref = "media"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

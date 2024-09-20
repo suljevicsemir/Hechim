@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="resource_label_resume">Resume</string>
+    <string name="resource_label_stop">Stop</string>
+    <string name="resource_label_pause">Pause</string>
+</resources>
