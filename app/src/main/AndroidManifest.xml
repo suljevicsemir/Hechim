@@ -61,7 +61,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name="com.semirsuljevic.foundation.api.sdk.TrackerService"
+        <service
+            android:name="com.semirsuljevic.foundation.api.sdk.TrackerService"
+            android:exported="false"
             android:foregroundServiceType="location"/>
     </application>
 
