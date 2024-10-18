@@ -11,6 +11,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.semirsuljevic.dashboard.R
 import com.semirsuljevic.dashboard.api.settings.viewmodel.SettingsViewModel
 import com.semirsuljevic.foundation.api.common.UiText
+import com.semirsuljevic.ui.api.buttons.HechimButton
 import com.semirsuljevic.ui.api.common.HechimListItem
 import com.semirsuljevic.ui.api.common.HechimListItemConfig
 import com.semirsuljevic.ui.api.theme.HechimTheme
@@ -27,6 +28,7 @@ fun SettingsPage(
             style = HechimTheme.fonts.pageTitleAlt,
             color = HechimTheme.colors.textDefault
         )
+        HechimButton(onClick = { viewModel.start() }, text = "start")
         Spacer(modifier = Modifier.height(HechimTheme.sizes.small))
         viewModel.list.forEach {
             HechimListItem(config = it)

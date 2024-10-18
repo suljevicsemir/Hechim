@@ -8,6 +8,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.semirsuljevic.dashboard.R
 import com.semirsuljevic.dashboard.api.applicationSettings.viewmodel.ApplicationSettingsViewModel
 import com.semirsuljevic.foundation.api.common.UiText
+import com.semirsuljevic.ui.api.buttons.HechimButton
 import com.semirsuljevic.ui.api.common.HechimListItem
 import com.semirsuljevic.ui.api.navigation.HechimRoute
 import com.semirsuljevic.ui.api.screen.HechimScreen
@@ -30,6 +31,7 @@ fun ApplicationSettingsScreen(
                 .padding(it)
                 .padding(horizontal = HechimTheme.sizes.scaffoldHorizontal)
         ){
+            HechimButton(onClick = { /*TODO*/ }, text = "start")
             viewModel.list.forEach { config ->
                 HechimListItem(config = config)
             }

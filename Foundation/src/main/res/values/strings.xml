@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="resource_label_resume">Resume</string>
+    <string name="resource_label_stop">Stop</string>
+    <string name="resource_label_pause">Pause</string>
+
+    <string name="channel_name">Workout</string>
+    <string name="channel_description">Channel reserved for workout notifications</string>
+    <string name="notification_steps_label">Steps</string>
+</resources>

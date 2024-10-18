@@ -13,14 +13,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
+import com.semirsuljevic.foundation.api.sdk.TrackerNotificationManager
 import com.semirsuljevic.hechim.navigation.AppNavigator
 import com.semirsuljevic.hechim.ui.theme.HechimTheme
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var trackerNotificationManager: TrackerNotificationManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        trackerNotificationManager.createChannel()
         enableEdgeToEdge()
         setContent {
             HechimTheme {
