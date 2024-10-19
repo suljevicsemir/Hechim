@@ -5,6 +5,7 @@ coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 junitPlugin = "1.8.2.1"
+parcelize = "1.8.10"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.4"
 activityCompose = "1.9.1"
@@ -30,6 +31,7 @@ media="1.7.0"
 security = "1.1.0-alpha06"
 #Room
 room="2.6.1"
+maps = "19.0.0"
 
 [libraries]
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
@@ -104,6 +106,8 @@ media = { group = "androidx.media", name = "media", version.ref = "media"}
 #Room
 room = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+play-services-maps = { group = "com.google.android.gms", name = "play-services-maps", version.ref = "maps" }
 
 
 [plugins]
@@ -113,6 +117,7 @@ androidHilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp-plugin = { id = "com.google.devtools.ksp", version.ref = "ksp"}
 junit5 = { id = "de.mannodermaus.android-junit5", version = "unspecified"}
+kotlin-parcelize = { id = "kotlin-parcelize", version.ref = "parcelize"}
 
 # Convention Plugins
 convention-android-application = { id = "hechimdemo.android.application", version = "unspecified" }

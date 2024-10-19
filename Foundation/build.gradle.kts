@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.convention.android.library.compose)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp.plugin)
+    id(libs.plugins.kotlin.parcelize.get().pluginId)
 }
 
 android {
@@ -14,9 +15,10 @@ android {
 
 dependencies {
     implementation(libs.room)
+    implementation(libs.room.ktx)
     annotationProcessor(libs.room.compiler)
     ksp(libs.room.compiler)
-
+    implementation(libs.play.services.maps)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

@@ -7,5 +7,6 @@ data class TrackerNotificationSettings(
     var paused: Boolean = false,
     var totalSteps: Int = -1,
     var workoutSteps: Int = 0,
-    var initialPosition: Location = Location("")
+    var initialPosition: Location = Location(""),
+    val workoutId: Long = 0
 )

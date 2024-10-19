@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavHostController
 import com.semirsuljevic.dashboard.api.navigation.DashboardNavigator
+import com.semirsuljevic.foundation.api.sdk.room.dao.WorkoutDao
 import com.semirsuljevic.ui.api.navbar.HechimNavigationBarItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -14,7 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DashboardViewModel @Inject constructor(
-    private val dashboardNavigator: DashboardNavigator
+    private val dashboardNavigator: DashboardNavigator,
+    private val workoutDao: WorkoutDao
 ): ViewModel(){
 
     private val _navBarIndex = mutableIntStateOf(0)
@@ -30,8 +32,18 @@ class DashboardViewModel @Inject constructor(
 
     private fun collectDashboardNavigator() {
         viewModelScope.launch {
-            dashboardNavigator.indexFlow.collectLatest {
-                _navBarIndex.value = it
+            launch {
+                dashboardNavigator.indexFlow.collectLatest {
+                    _navBarIndex.value = it
+                }
+            }
+            launch {
+                workoutDao.getWorkouts().collectLatest {
+                    println("got workouts")
+                    it.forEach {
+                        println(it)
+                    }
+                }
             }
         }
     }
