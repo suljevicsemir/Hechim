@@ -4,12 +4,12 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.semirsuljevic.foundation.api.sdk.model.workout.Point
-import com.semirsuljevic.foundation.api.sdk.model.workout.Workout
+import com.semirsuljevic.foundation.api.sdk.model.workout.WorkoutInfo
 import com.semirsuljevic.foundation.api.sdk.room.dao.WorkoutDao
 
 @Database(
     entities = [
-        Workout::class,
+        WorkoutInfo::class,
         Point::class
     ],
     version = 1

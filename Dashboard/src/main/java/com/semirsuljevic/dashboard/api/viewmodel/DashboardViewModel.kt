@@ -1,7 +1,6 @@
 package com.semirsuljevic.dashboard.api.viewmodel
 
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavHostController
@@ -34,15 +33,7 @@ class DashboardViewModel @Inject constructor(
         viewModelScope.launch {
             launch {
                 dashboardNavigator.indexFlow.collectLatest {
-                    _navBarIndex.value = it
-                }
-            }
-            launch {
-                workoutDao.getWorkouts().collectLatest {
-                    println("got workouts")
-                    it.forEach {
-                        println(it)
-                    }
+                    _navBarIndex.intValue = it
                 }
             }
         }

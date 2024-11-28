@@ -19,7 +19,7 @@ import com.semirsuljevic.foundation.api.sdk.TrackerServiceManager
 import com.semirsuljevic.foundation.api.sdk.config.TrackerServiceConstants
 import com.semirsuljevic.foundation.api.sdk.model.TrackerNotificationSettings
 import com.semirsuljevic.foundation.api.sdk.model.workout.Point
-import com.semirsuljevic.foundation.api.sdk.model.workout.Workout
+import com.semirsuljevic.foundation.api.sdk.model.workout.WorkoutInfo
 import com.semirsuljevic.foundation.api.sdk.room.dao.WorkoutDao
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineScope
@@ -73,10 +73,10 @@ internal class TrackerServiceManagerImpl @Inject constructor(
         observeNotification()
 
         CoroutineScope(dispatchers.io).launch {
-            val workoutId = workoutDao.insertWorkout(Workout())
+            val workoutInfoId = workoutDao.insertWorkoutInfo(WorkoutInfo())
             _settings.update {
                 _settings.value.copy(
-                    workoutId = workoutId
+                    workoutId = workoutInfoId
                 )
             }
             delay(TrackerServiceConstants.NOTIFICATION_DELAY)
@@ -101,19 +101,19 @@ internal class TrackerServiceManagerImpl @Inject constructor(
 
         mGpsLocationClient.requestLocationUpdates(
             LocationManager.GPS_PROVIDER,
-            3000,
+            1000,
             10.0f,
             locationListener
         )
     }
 
     override fun stopWorkout(service: TrackerService): Int{
+        //update end of workout
         CoroutineScope(dispatchers.io).launch {
-            workoutDao.insertWorkout(
-                Workout(
-                    distance = _settings.value.distance,
-                    duration = _settings.value.time
-                )
+            workoutDao.updateDurationDistance(
+                id = _settings.value.workoutId,
+                duration = _settings.value.time,
+                distance = _settings.value.distance
             )
         }
         mainHandler.removeMessages(0)

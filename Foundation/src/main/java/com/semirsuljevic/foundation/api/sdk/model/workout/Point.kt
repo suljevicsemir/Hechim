@@ -3,19 +3,15 @@ package com.semirsuljevic.foundation.api.sdk.model.workout
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.Relation
 import com.google.android.gms.maps.model.LatLng
 import com.semirsuljevic.foundation.api.sdk.config.LocalDateTimeSerializer
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Serializable
-import java.time.LocalDate
 import java.time.LocalDateTime
 
 @Parcelize
 @Serializable
-@Entity(
-    tableName = "points"
-)
+@Entity(tableName = "points")
 data class Point(
     @PrimaryKey(autoGenerate = true) val id: Long? = null,
     val latitude: Double? = null,
