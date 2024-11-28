@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.convention.android.application.compose)
     alias(libs.plugins.convention.android.hilt)
     alias(libs.plugins.googleServices)
+    id("kotlin-parcelize")
 }
 
 android {

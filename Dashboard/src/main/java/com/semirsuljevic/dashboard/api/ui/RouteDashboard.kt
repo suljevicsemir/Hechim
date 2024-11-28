@@ -64,9 +64,7 @@ fun DashboardScreen(
                 SettingsPage()
             }
             composable(DashboardWorkoutsItem.route) {
-                Column {
-
-                }
+                WorkoutsScreen()
             }
         }
     }

@@ -29,7 +29,6 @@ class TrackerService: Service(), SensorEventListener {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         return when(TrackerServiceAction.fromIntentAction(intent)) {
             TrackerServiceAction.START -> {
-                println("starting workout")
                 manager.startWorkout(this)
                 super.onStartCommand(intent, flags, startId)
             }

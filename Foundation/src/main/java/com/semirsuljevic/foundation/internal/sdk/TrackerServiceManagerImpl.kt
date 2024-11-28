@@ -8,9 +8,7 @@ import android.content.Context.SENSOR_SERVICE
 import android.content.Intent
 import android.hardware.Sensor
 import android.hardware.SensorEvent
-import android.hardware.SensorEventListener
 import android.hardware.SensorManager
-import android.location.Location
 import android.location.LocationManager
 import android.os.Handler
 import android.os.Looper
@@ -20,24 +18,26 @@ import com.semirsuljevic.foundation.api.sdk.TrackerService
 import com.semirsuljevic.foundation.api.sdk.TrackerServiceManager
 import com.semirsuljevic.foundation.api.sdk.config.TrackerServiceConstants
 import com.semirsuljevic.foundation.api.sdk.model.TrackerNotificationSettings
+import com.semirsuljevic.foundation.api.sdk.model.workout.Point
+import com.semirsuljevic.foundation.api.sdk.model.workout.WorkoutInfo
+import com.semirsuljevic.foundation.api.sdk.room.dao.WorkoutDao
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import java.util.Locale
+import java.time.LocalDateTime
 import javax.inject.Inject
-import kotlin.time.Duration.Companion.seconds
 
 internal class TrackerServiceManagerImpl @Inject constructor(
     @ApplicationContext private val applicationContext: Context,
     private val notificationManager: TrackerNotificationManager,
-    private val dispatchers: Dispatchers
+    private val dispatchers: Dispatchers,
+    private val workoutDao: WorkoutDao
 ): TrackerServiceManager{
     private val locationListener = android.location.LocationListener { location ->
         if((_settings.value.initialPosition.provider ?: "").isEmpty()) {
@@ -50,6 +50,16 @@ internal class TrackerServiceManagerImpl @Inject constructor(
         }
         if(location.accuracy <= 11 && !_settings.value.paused) {
             val distance = _settings.value.initialPosition.distanceTo(location)
+            CoroutineScope(dispatchers.io).launch {
+                workoutDao.insertPoint(
+                    Point(
+                        latitude = location.latitude,
+                        longitude = location.longitude,
+                        time = LocalDateTime.now(),
+                        workoutId = _settings.value.workoutId
+                    )
+                )
+            }
             _settings.update { _settings.value.copy(distance = _settings.value.distance + distance) }
 
         }
@@ -63,6 +73,12 @@ internal class TrackerServiceManagerImpl @Inject constructor(
         observeNotification()
 
         CoroutineScope(dispatchers.io).launch {
+            val workoutInfoId = workoutDao.insertWorkoutInfo(WorkoutInfo())
+            _settings.update {
+                _settings.value.copy(
+                    workoutId = workoutInfoId
+                )
+            }
             delay(TrackerServiceConstants.NOTIFICATION_DELAY)
             mainHandler.post(object : Runnable {
                 override fun run() {
@@ -85,13 +101,21 @@ internal class TrackerServiceManagerImpl @Inject constructor(
 
         mGpsLocationClient.requestLocationUpdates(
             LocationManager.GPS_PROVIDER,
-            3000,
+            1000,
             10.0f,
             locationListener
         )
     }
 
     override fun stopWorkout(service: TrackerService): Int{
+        //update end of workout
+        CoroutineScope(dispatchers.io).launch {
+            workoutDao.updateDurationDistance(
+                id = _settings.value.workoutId,
+                duration = _settings.value.time,
+                distance = _settings.value.distance
+            )
+        }
         mainHandler.removeMessages(0)
         mGpsLocationClient.removeUpdates(locationListener)
         sensorManager.unregisterListener(service)

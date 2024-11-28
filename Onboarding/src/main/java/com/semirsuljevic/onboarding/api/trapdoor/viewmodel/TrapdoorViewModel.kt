@@ -11,15 +11,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.viewModelScope
 import com.semirsuljevic.foundation.api.authentication.HechimAuthentication
 import com.semirsuljevic.foundation.api.datastore.PermissionsRequestsProvider
-import com.semirsuljevic.onboarding.api.permissions.config.PermissionConstants
 import com.semirsuljevic.onboarding.api.permissions.viewmodel.PermissionsProviderViewModel
 import com.semirsuljevic.onboarding.api.trapdoor.config.TrapdoorConfig
 import com.semirsuljevic.onboarding.api.trapdoor.config.TrapdoorConstants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -49,6 +45,9 @@ class TrapdoorViewModel @Inject constructor(
     Will be called when user returns from app settings to app - and refresh modal (or close it).
      */
     fun checkTrapdoorPermission() {
+        if(!authenticationApi.isAuthenticated()) {
+            return
+        }
         //no need to check for trapdoors if user isn't authenticated
         //this prevents modal invocation for onboarding / auth flow
         //in order for trapdoor modal to kick in
